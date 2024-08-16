@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm4ees4gn1ow7"]
+
+[ext_resource type="Script" path="res://Code/Goal.gd" id="1_4dql6"]
+[ext_resource type="Texture2D" uid="uid://dqc5alndfr7h" path="res://Textures/icon.svg" id="2_ji4oc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxoma"]
+radius = 30.0167
+
+[node name="Goal" type="Node2D"]
+script = ExtResource("1_4dql6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.839216, 0, 0.807843, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ji4oc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_uxoma")
+
+[connection signal="area_entered" from="Area2D" to="." method="ReachedGoal"]

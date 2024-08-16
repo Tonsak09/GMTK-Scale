@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8lkiiv4dkdbu"]
+
+[ext_resource type="Script" path="res://Code/Level.gd" id="1_odtyc"]
+[ext_resource type="Texture2D" uid="uid://dqc5alndfr7h" path="res://Textures/icon.svg" id="2_n4sxv"]
+[ext_resource type="PackedScene" uid="uid://cm4ees4gn1ow7" path="res://Scenes/Prefabs/Goal.tscn" id="3_84jrv"]
+
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("gravityWells", "goal")]
+position = Vector2(-548, 31)
+script = ExtResource("1_odtyc")
+gravityWells = [NodePath("Planet"), NodePath("Goal")]
+goal = NodePath("Goal")
+
+[node name="Planet" type="Node2D" parent="."]
+position = Vector2(345, -196)
+
+[node name="Sprite2D" type="Sprite2D" parent="Planet"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_n4sxv")
+
+[node name="Goal" parent="." instance=ExtResource("3_84jrv")]

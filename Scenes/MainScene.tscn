@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://batbedws8xmvw"]
+[gd_scene load_steps=5 format=3 uid="uid://batbedws8xmvw"]
 
 [ext_resource type="Script" path="res://Code/GameManager.gd" id="1_tanui"]
 [ext_resource type="PackedScene" uid="uid://btso6c76dfmtk" path="res://Scenes/Prefabs/Ship.tscn" id="2_5i6gr"]
 [ext_resource type="PackedScene" uid="uid://nvtrd38ujy47" path="res://Scenes/Levels/Level_0.tscn" id="3_pg5p2"]
+[ext_resource type="PackedScene" uid="uid://c8lkiiv4dkdbu" path="res://Scenes/Levels/Level_1.tscn" id="4_l4smn"]
 
 [node name="MainScene" type="Node2D" node_paths=PackedStringArray("currShip", "onScreenDetector")]
 script = ExtResource("1_tanui")
 currShip = NodePath("Ship")
 onScreenDetector = NodePath("VisibleOnScreenNotifier2D")
-levels = Array[PackedScene]([ExtResource("3_pg5p2")])
+levels = Array[PackedScene]([ExtResource("3_pg5p2"), ExtResource("4_l4smn")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

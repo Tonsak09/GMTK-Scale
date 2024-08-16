@@ -6,9 +6,12 @@ extends Node2D
 @export var levels : Array[PackedScene]
 
 var ship = preload("res://Scenes/Prefabs/Ship.tscn")
+var currLevelInstance
+var currLevelIndex : int
 
 func _ready():
-	LoadLevel(0)
+	currLevelIndex = 0
+	LoadLevel(currLevelIndex)
 
 func _input(event):
 	if event.is_action_pressed("Restart"):
@@ -16,14 +19,22 @@ func _input(event):
 
 func _process(delta):
 	onScreenDetector.global_position = currShip.global_position 
+	
+	if currLevelInstance.goal.complete:
+		currLevelIndex += 1
+		currLevelInstance.queue_free()
+		LoadLevel(currLevelIndex)
 
 func LoadLevel(index : int):
-	var levelInstance = levels[0].instantiate()
+	var levelInstance = levels[index].instantiate()
 	add_child(levelInstance)
+	currLevelInstance = levelInstance
 	
 	currShip.gravityWells.clear()
 	for i in levelInstance.gravityWells.size():
 		currShip.gravityWells.append(levelInstance.gravityWells[i])
+	
+	Restart()
 
 func Restart():
 	

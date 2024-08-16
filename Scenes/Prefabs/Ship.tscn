@@ -1,17 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://btso6c76dfmtk"]
+[gd_scene load_steps=6 format=3 uid="uid://btso6c76dfmtk"]
 
 [ext_resource type="Script" path="res://Code/Ship.gd" id="1_dwt8f"]
 [ext_resource type="Texture2D" uid="uid://dqc5alndfr7h" path="res://Textures/icon.svg" id="2_7ok07"]
 [ext_resource type="Script" path="res://Code/CircleDrawer.gd" id="3_lsmst"]
+[ext_resource type="Script" path="res://Code/ShipSprite.gd" id="3_q5wo7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wcxk"]
+radius = 17.0294
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_dwt8f")
 viewportSize = Vector2(1152, 648)
 attractForce = 50.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ShipSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("shipParent")]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_7ok07")
+script = ExtResource("3_q5wo7")
+shipParent = NodePath("..")
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -20,3 +26,8 @@ default_color = Color(0.776471, 0.776471, 0.776471, 1)
 script = ExtResource("3_lsmst")
 radius = 100.0
 viewportSize = Vector2(1152, 648)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8wcxk")
