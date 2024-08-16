@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://btso6c76dfmtk"]
+
+[ext_resource type="Script" path="res://Code/Ship.gd" id="1_dwt8f"]
+[ext_resource type="Texture2D" uid="uid://dqc5alndfr7h" path="res://Textures/icon.svg" id="2_7ok07"]
+[ext_resource type="Script" path="res://Code/CircleDrawer.gd" id="3_lsmst"]
+
+[node name="Ship" type="Node2D"]
+script = ExtResource("1_dwt8f")
+viewportSize = Vector2(1152, 648)
+attractForce = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7ok07")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 5.0
+default_color = Color(0.776471, 0.776471, 0.776471, 1)
+script = ExtResource("3_lsmst")
+radius = 100.0
+viewportSize = Vector2(1152, 648)
