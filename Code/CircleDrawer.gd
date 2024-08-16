@@ -4,7 +4,7 @@ extends Line2D
 @export var viewportSize : Vector2
 
 func _process(delta):
-	var currRadius = ((global_position + viewportSize / 2.0) - get_viewport().get_mouse_position() ).length()
+	var currRadius = (global_position - get_global_mouse_position() ).length()
 	UpdateCirclePoints(currRadius)
 
 

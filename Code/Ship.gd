@@ -17,7 +17,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	currRadius = ((global_position + viewportSize / 2.0) - get_viewport().get_mouse_position() ).length()
+	currRadius = (global_position - get_global_mouse_position() ).length()
 	
 	
 	var accel = Vector2(0,0)
