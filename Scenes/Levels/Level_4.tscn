@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg1d2i8auq3y1"]
+
+[ext_resource type="Script" path="res://Code/Level.gd" id="1_donfn"]
+[ext_resource type="Script" path="res://Code/Spinner.gd" id="2_ovnhf"]
+[ext_resource type="PackedScene" uid="uid://cm4ees4gn1ow7" path="res://Scenes/Prefabs/Goal.tscn" id="3_ms4i5"]
+[ext_resource type="PackedScene" uid="uid://dtqhlc0tex7ms" path="res://Scenes/Prefabs/Planets/Planet_H.tscn" id="4_bmdso"]
+[ext_resource type="PackedScene" uid="uid://cdi48ckk7ikcw" path="res://Scenes/Prefabs/Planets/Planet_G.tscn" id="5_8mt6v"]
+
+[node name="Level4" type="Node2D" node_paths=PackedStringArray("gravityWells", "goal")]
+script = ExtResource("1_donfn")
+gravityWells = [NodePath("PlanetH/Spinner2/Goal"), NodePath("PlanetH"), NodePath("PlanetH/Spinner/PlanetG")]
+goal = NodePath("PlanetH/Spinner2/Goal")
+
+[node name="PlanetH" parent="." instance=ExtResource("4_bmdso")]
+position = Vector2(272, -1)
+
+[node name="Spinner2" type="Node2D" parent="PlanetH"]
+script = ExtResource("2_ovnhf")
+spinSpeed = 0.1
+
+[node name="Goal" parent="PlanetH/Spinner2" instance=ExtResource("3_ms4i5")]
+position = Vector2(192, -79)
+
+[node name="Spinner" type="Node2D" parent="PlanetH"]
+script = ExtResource("2_ovnhf")
+spinSpeed = 0.5
+
+[node name="PlanetG" parent="PlanetH/Spinner" instance=ExtResource("5_8mt6v")]
+position = Vector2(-91, 133)

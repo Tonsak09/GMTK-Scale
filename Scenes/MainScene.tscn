@@ -1,20 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://batbedws8xmvw"]
+[gd_scene load_steps=11 format=3 uid="uid://batbedws8xmvw"]
 
 [ext_resource type="Script" path="res://Code/GameManager.gd" id="1_tanui"]
 [ext_resource type="PackedScene" uid="uid://btso6c76dfmtk" path="res://Scenes/Prefabs/Ship.tscn" id="2_5i6gr"]
 [ext_resource type="PackedScene" uid="uid://nvtrd38ujy47" path="res://Scenes/Levels/Level_0.tscn" id="3_pg5p2"]
 [ext_resource type="PackedScene" uid="uid://c8lkiiv4dkdbu" path="res://Scenes/Levels/Level_1.tscn" id="4_l4smn"]
+[ext_resource type="PackedScene" uid="uid://mhlmg1j32yxs" path="res://Scenes/Levels/Level_2.tscn" id="5_i2yr5"]
+[ext_resource type="PackedScene" uid="uid://bh8e5j1mv34mj" path="res://Scenes/Levels/Level_3.tscn" id="6_gbml2"]
+[ext_resource type="PackedScene" uid="uid://dg1d2i8auq3y1" path="res://Scenes/Levels/Level_4.tscn" id="7_hw0mj"]
+[ext_resource type="PackedScene" uid="uid://pqiiak7ohdym" path="res://Scenes/Levels/Level_5.tscn" id="8_tgc4w"]
+[ext_resource type="PackedScene" uid="uid://bs373eoiteb1a" path="res://Scenes/Levels/Level_6.tscn" id="9_lv5uv"]
+[ext_resource type="Texture2D" uid="uid://bd0l57gslanyi" path="res://Textures/Hex.png" id="10_1b0fi"]
 
-[node name="MainScene" type="Node2D" node_paths=PackedStringArray("currShip", "onScreenDetector")]
+[node name="MainScene" type="Node2D" node_paths=PackedStringArray("currShip", "onScreenDetector", "startPos")]
 script = ExtResource("1_tanui")
 currShip = NodePath("Ship")
 onScreenDetector = NodePath("VisibleOnScreenNotifier2D")
-levels = Array[PackedScene]([ExtResource("3_pg5p2"), ExtResource("4_l4smn")])
+startPos = NodePath("StartPos")
+levels = Array[PackedScene]([ExtResource("3_pg5p2"), ExtResource("4_l4smn"), ExtResource("5_i2yr5"), ExtResource("6_gbml2"), ExtResource("7_hw0mj"), ExtResource("8_tgc4w"), ExtResource("9_lv5uv")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Ship" parent="." instance=ExtResource("2_5i6gr")]
+position = Vector2(-451, 0)
+
+[node name="StartPos" type="Node2D" parent="."]
+position = Vector2(-451, 0)
+
+[node name="Hex" type="Sprite2D" parent="."]
+position = Vector2(-181, -194)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_1b0fi")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="Restart"]

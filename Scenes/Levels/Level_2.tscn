@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://mhlmg1j32yxs"]
+
+[ext_resource type="Script" path="res://Code/Level.gd" id="1_oc23b"]
+[ext_resource type="PackedScene" uid="uid://cm4ees4gn1ow7" path="res://Scenes/Prefabs/Goal.tscn" id="2_jx021"]
+[ext_resource type="PackedScene" uid="uid://05qoex2tvkp3" path="res://Scenes/Prefabs/Planets/Planet_A.tscn" id="3_dpb3p"]
+[ext_resource type="PackedScene" uid="uid://fjxwuptnb3x5" path="res://Scenes/Prefabs/Planets/Planet_B.tscn" id="4_tgtge"]
+
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("gravityWells", "goal")]
+script = ExtResource("1_oc23b")
+gravityWells = [NodePath("Goal"), NodePath("PlanetA"), NodePath("PlanetB")]
+goal = NodePath("Goal")
+
+[node name="Goal" parent="." instance=ExtResource("2_jx021")]
+position = Vector2(535, -115)
+
+[node name="PlanetA" parent="." instance=ExtResource("3_dpb3p")]
+position = Vector2(295, 73)
+
+[node name="PlanetB" parent="." instance=ExtResource("4_tgtge")]
+position = Vector2(124, -199)

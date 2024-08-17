@@ -19,6 +19,7 @@ config/icon="res://Textures/icon.svg"
 
 window/size/resizable=false
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://Textures/Cursor.png"
 
 [input]
 
@@ -32,3 +33,4 @@ Restart={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.937255, 0.92549, 0.92549, 1)

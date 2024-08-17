@@ -2,6 +2,7 @@ extends Node2D
 
 @export var currShip : Node2D
 @export var onScreenDetector : VisibleOnScreenNotifier2D
+@export var startPos : Node2D
 
 @export var levels : Array[PackedScene]
 
@@ -48,4 +49,5 @@ func Restart():
 	
 	currShip.queue_free()
 	currShip = instance
+	currShip.global_position = startPos.global_position
 	#map = map.new(inst_geo) 
