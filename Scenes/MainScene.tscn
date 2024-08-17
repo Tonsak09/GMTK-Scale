@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://batbedws8xmvw"]
+[gd_scene load_steps=14 format=3 uid="uid://batbedws8xmvw"]
 
 [ext_resource type="Script" path="res://Code/GameManager.gd" id="1_tanui"]
 [ext_resource type="PackedScene" uid="uid://btso6c76dfmtk" path="res://Scenes/Prefabs/Ship.tscn" id="2_5i6gr"]
@@ -10,6 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://pqiiak7ohdym" path="res://Scenes/Levels/Level_5.tscn" id="8_tgc4w"]
 [ext_resource type="PackedScene" uid="uid://bs373eoiteb1a" path="res://Scenes/Levels/Level_6.tscn" id="9_lv5uv"]
 [ext_resource type="Texture2D" uid="uid://bd0l57gslanyi" path="res://Textures/Hex.png" id="10_1b0fi"]
+[ext_resource type="Texture2D" uid="uid://dmkktah5e7mvv" path="res://Textures/Widget.png" id="11_lsuxf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_08eph"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0o0fw"]
+font_size = 50
+font_color = Color(0.125911, 0.125911, 0.125911, 1)
 
 [node name="MainScene" type="Node2D" node_paths=PackedStringArray("currShip", "onScreenDetector", "startPos")]
 script = ExtResource("1_tanui")
@@ -32,5 +41,361 @@ position = Vector2(-451, 0)
 position = Vector2(-181, -194)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_1b0fi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+visible = false
+offset_left = -286.0
+offset_top = -170.0
+offset_right = 286.0
+offset_bottom = 170.0
+color = Color(0.272655, 0.272655, 0.272655, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -582.0
+offset_top = -327.0
+offset_right = 582.0
+offset_bottom = 322.0
+
+[node name="Collectibles" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = -9.0
+offset_right = 31.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/Collectibles"]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 267.0
+offset_right = 573.0
+offset_bottom = 322.0
+text = "0/25"
+label_settings = SubResource("LabelSettings_08eph")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Collectibles"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 267.0
+offset_right = 481.0
+offset_bottom = 311.0
+texture = ExtResource("10_1b0fi")
+expand_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_left = -280.0
+offset_top = -161.0
+offset_right = 281.0
+offset_bottom = 162.0
+columns = 5
+
+[node name="Button" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "01
+"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button5" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "02"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "03"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button4" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "04"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button6" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "05"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button7" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "06"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button8" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "07"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button9" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "08"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button10" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "09"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button11" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button12" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "11"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button13" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button13"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "12"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button14" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button14"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "13"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button15" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "00"
+icon = ExtResource("11_lsuxf")
+flat = true
+clip_text = true
+
+[node name="Label" type="Label" parent="Control/GridContainer/Button15"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.954
+anchor_bottom = 1.0
+offset_right = 0.0139923
+grow_horizontal = 2
+grow_vertical = 2
+text = "14"
+label_settings = SubResource("LabelSettings_0o0fw")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="Restart"]
