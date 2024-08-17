@@ -1,17 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://batbedws8xmvw"]
+[gd_scene load_steps=5 format=3 uid="uid://batbedws8xmvw"]
 
 [ext_resource type="Script" path="res://Code/GameManager.gd" id="1_tanui"]
 [ext_resource type="PackedScene" uid="uid://btso6c76dfmtk" path="res://Scenes/Prefabs/Ship.tscn" id="2_5i6gr"]
 [ext_resource type="PackedScene" uid="uid://nvtrd38ujy47" path="res://Scenes/Levels/Level_0.tscn" id="3_pg5p2"]
 [ext_resource type="PackedScene" uid="uid://c8lkiiv4dkdbu" path="res://Scenes/Levels/Level_1.tscn" id="4_l4smn"]
-[ext_resource type="Texture2D" uid="uid://ddh2ovh5rtja8" path="res://Textures/Planets/PlanetA.png" id="5_btkxb"]
-[ext_resource type="Texture2D" uid="uid://bdfc2jx5r8sy" path="res://Textures/Planets/PlanetB.png" id="6_i0nlt"]
-[ext_resource type="Texture2D" uid="uid://dkmw56a2rws3w" path="res://Textures/Planets/PlanetD.png" id="7_beoai"]
-[ext_resource type="Texture2D" uid="uid://cdcti6tbcl4ti" path="res://Textures/Planets/PlanetE.png" id="8_qp2cl"]
-[ext_resource type="Texture2D" uid="uid://bsaimlr2aqcob" path="res://Textures/Planets/PlanetC.png" id="9_m1mhs"]
-[ext_resource type="Texture2D" uid="uid://b7itw4q0q6lkb" path="res://Textures/Planets/PlanetF.png" id="10_ttojw"]
-[ext_resource type="Texture2D" uid="uid://s7klr1trhv5u" path="res://Textures/Planets/PlanetG.png" id="11_vsmae"]
-[ext_resource type="Texture2D" uid="uid://vw6fcc0ex617" path="res://Textures/Planets/PlanetH.png" id="12_bok8g"]
 
 [node name="MainScene" type="Node2D" node_paths=PackedStringArray("currShip", "onScreenDetector")]
 script = ExtResource("1_tanui")
@@ -24,45 +16,5 @@ levels = Array[PackedScene]([ExtResource("3_pg5p2"), ExtResource("4_l4smn")])
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Ship" parent="." instance=ExtResource("2_5i6gr")]
-
-[node name="PlanetA" type="Sprite2D" parent="."]
-position = Vector2(-169, 40)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_btkxb")
-
-[node name="PlanetB" type="Sprite2D" parent="."]
-position = Vector2(102, 65)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_i0nlt")
-
-[node name="PlanetD" type="Sprite2D" parent="."]
-position = Vector2(-48, 146)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_beoai")
-
-[node name="PlanetE" type="Sprite2D" parent="."]
-position = Vector2(219, -95)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_qp2cl")
-
-[node name="PlanetC" type="Sprite2D" parent="."]
-position = Vector2(-116, -147)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_m1mhs")
-
-[node name="PlanetF" type="Sprite2D" parent="."]
-position = Vector2(-211, 186)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("10_ttojw")
-
-[node name="PlanetG" type="Sprite2D" parent="."]
-position = Vector2(-284, -54)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_vsmae")
-
-[node name="PlanetH" type="Sprite2D" parent="."]
-position = Vector2(-379, 31)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_bok8g")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="Restart"]

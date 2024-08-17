@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://fjxwuptnb3x5"]
+
+[ext_resource type="Script" path="res://Code/Planet.gd" id="1_allv0"]
+[ext_resource type="Texture2D" uid="uid://bdfc2jx5r8sy" path="res://Textures/Planets/PlanetB.png" id="2_6cvla"]
+
+[node name="PlanetB" type="Node2D"]
+script = ExtResource("1_allv0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6cvla")

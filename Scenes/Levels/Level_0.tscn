@@ -1,20 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://nvtrd38ujy47"]
+[gd_scene load_steps=12 format=3 uid="uid://nvtrd38ujy47"]
 
 [ext_resource type="Script" path="res://Code/Level.gd" id="1_r7og2"]
-[ext_resource type="Texture2D" uid="uid://dqc5alndfr7h" path="res://Textures/icon.svg" id="2_1robi"]
+[ext_resource type="Script" path="res://Code/Planet.gd" id="2_5mxoy"]
+[ext_resource type="Texture2D" uid="uid://ddh2ovh5rtja8" path="res://Textures/Planets/PlanetA.png" id="2_euekp"]
 [ext_resource type="PackedScene" uid="uid://cm4ees4gn1ow7" path="res://Scenes/Prefabs/Goal.tscn" id="3_5gsnu"]
+[ext_resource type="Texture2D" uid="uid://bdfc2jx5r8sy" path="res://Textures/Planets/PlanetB.png" id="5_61b6s"]
+[ext_resource type="Texture2D" uid="uid://bsaimlr2aqcob" path="res://Textures/Planets/PlanetC.png" id="6_2renn"]
+[ext_resource type="Texture2D" uid="uid://dkmw56a2rws3w" path="res://Textures/Planets/PlanetD.png" id="7_rtncp"]
+[ext_resource type="Texture2D" uid="uid://cdcti6tbcl4ti" path="res://Textures/Planets/PlanetE.png" id="8_x48on"]
+[ext_resource type="Texture2D" uid="uid://b7itw4q0q6lkb" path="res://Textures/Planets/PlanetF.png" id="9_oix1g"]
+[ext_resource type="Texture2D" uid="uid://s7klr1trhv5u" path="res://Textures/Planets/PlanetG.png" id="10_0f4cv"]
+[ext_resource type="Texture2D" uid="uid://vw6fcc0ex617" path="res://Textures/Planets/PlanetH.png" id="11_aeqkd"]
 
 [node name="Level0" type="Node2D" node_paths=PackedStringArray("gravityWells", "goal")]
 script = ExtResource("1_r7og2")
-gravityWells = [NodePath("Planet4")]
+gravityWells = [NodePath("PlanetA")]
 goal = NodePath("Goal")
 
-[node name="Planet4" type="Node2D" parent="."]
+[node name="PlanetA" type="Node2D" parent="."]
 position = Vector2(0, -148)
+script = ExtResource("2_5mxoy")
 
-[node name="Sprite2D" type="Sprite2D" parent="Planet4"]
+[node name="Sprite2D" type="Sprite2D" parent="PlanetA"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_1robi")
+texture = ExtResource("2_euekp")
 
 [node name="Goal" parent="." instance=ExtResource("3_5gsnu")]
 position = Vector2(0, -242)
+
+[node name="PlanetB" type="Node2D" parent="."]
+position = Vector2(0, -148)
+script = ExtResource("2_5mxoy")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlanetB"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_61b6s")
+
+[node name="PlanetC" type="Node2D" parent="."]
+position = Vector2(0, -148)
+script = ExtResource("2_5mxoy")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlanetC"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_2renn")
+
+[node name="PlanetD" type="Node2D" parent="."]
+position = Vector2(0, -148)
+script = ExtResource("2_5mxoy")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlanetD"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_rtncp")
+
+[node name="PlanetE" type="Node2D" parent="."]
+position = Vector2(0, -148)
+script = ExtResource("2_5mxoy")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlanetE"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_x48on")
+
+[node name="PlanetF" type="Node2D" parent="."]
+position = Vector2(0, -148)
+script = ExtResource("2_5mxoy")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlanetF"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_oix1g")
+
+[node name="PlanetG" type="Node2D" parent="."]
+position = Vector2(0, -148)
+script = ExtResource("2_5mxoy")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlanetG"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_0f4cv")
+
+[node name="PlanetH" type="Node2D" parent="."]
+position = Vector2(0, -148)
+script = ExtResource("2_5mxoy")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlanetH"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_aeqkd")
