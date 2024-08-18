@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs373eoiteb1a"]
+[gd_scene load_steps=5 format=3 uid="uid://bs373eoiteb1a"]
 
 [ext_resource type="Script" path="res://Code/Level.gd" id="1_0fn8l"]
 [ext_resource type="PackedScene" uid="uid://cm4ees4gn1ow7" path="res://Scenes/Prefabs/Goal.tscn" id="2_smqeo"]
 [ext_resource type="PackedScene" uid="uid://ccj2mfe2l7cpr" path="res://Scenes/Prefabs/Wormhole.tscn" id="3_hiwib"]
+[ext_resource type="PackedScene" uid="uid://1sf5om1dnb2w" path="res://Scenes/Prefabs/Collectible.tscn" id="4_3iwqf"]
 
 [node name="Level6" type="Node2D" node_paths=PackedStringArray("gravityWells", "goal")]
 script = ExtResource("1_0fn8l")
@@ -19,3 +20,6 @@ target = NodePath("../Wormhole2")
 [node name="Wormhole2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_hiwib")]
 position = Vector2(218, 225)
 target = NodePath("../Wormhole")
+
+[node name="Collectible" parent="." instance=ExtResource("4_3iwqf")]
+position = Vector2(175, 99)

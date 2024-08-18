@@ -11,19 +11,29 @@ var ship = preload("res://Scenes/Prefabs/Ship.tscn")
 var currLevelInstance
 var currLevelIndex : int
 
+var isPlaying : bool
+var reloading : bool 
+
+
+var heldCollectibles : int 
+var collectibles : int 
+
 func _ready():
-	currLevelIndex = 0
-	LoadLevel(currLevelIndex)
+	currLevelIndex = -1
+	#LoadLevel(currLevelIndex)
 
 func _input(event):
 	if event.is_action_pressed("Restart"):
 		Restart()
 
 func _process(delta):
+	
+	if !isPlaying:
+		return 
+	
 	onScreenDetector.global_position = currShip.global_position 
 	
 	if currLevelInstance.goal.complete:
-		
 		transitor.Transition()
 		#currShip.vel = Vector2.ZERO
 		
@@ -31,7 +41,17 @@ func _process(delta):
 			currLevelIndex += 1
 			currLevelInstance.queue_free()
 			LoadLevel(currLevelIndex)
+			
+			if !reloading:
+				collectibles += heldCollectibles
+			heldCollectibles = 0
+			reloading = false 
+			
 
+func ReloadLevel():
+	reloading = true 
+	currLevelInstance.goal.complete = true
+	currLevelIndex -= 1
 
 func LoadLevel(index : int):
 	var levelInstance = levels[index].instantiate()
@@ -43,6 +63,8 @@ func LoadLevel(index : int):
 		currShip.gravityWells.append(levelInstance.gravityWells[i])
 	
 	Restart()
+	isPlaying = true
+	currLevelIndex = index
 
 func Restart():
 	

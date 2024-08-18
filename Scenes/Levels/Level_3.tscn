@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh8e5j1mv34mj"]
+[gd_scene load_steps=8 format=3 uid="uid://bh8e5j1mv34mj"]
 
 [ext_resource type="Script" path="res://Code/Level.gd" id="1_nm7s8"]
 [ext_resource type="Script" path="res://Code/Spinner.gd" id="2_hnwv6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsiwlu2yt2s8r" path="res://Scenes/Prefabs/Planets/Planet_E.tscn" id="4_uxasw"]
 [ext_resource type="PackedScene" uid="uid://cm4ees4gn1ow7" path="res://Scenes/Prefabs/Goal.tscn" id="5_m7qi0"]
 [ext_resource type="PackedScene" uid="uid://dtqhlc0tex7ms" path="res://Scenes/Prefabs/Planets/Planet_H.tscn" id="6_i3g7t"]
+[ext_resource type="PackedScene" uid="uid://1sf5om1dnb2w" path="res://Scenes/Prefabs/Collectible.tscn" id="7_idtjs"]
 
 [node name="Level3" type="Node2D" node_paths=PackedStringArray("gravityWells", "goal")]
 script = ExtResource("1_nm7s8")
@@ -30,3 +31,9 @@ spinSpeed = 0.1
 position = Vector2(-128, 235)
 
 [node name="PlanetH" parent="." instance=ExtResource("6_i3g7t")]
+
+[node name="Collectible" parent="." instance=ExtResource("7_idtjs")]
+position = Vector2(-22, -201)
+
+[node name="Collectible2" parent="." instance=ExtResource("7_idtjs")]
+position = Vector2(223, -7)

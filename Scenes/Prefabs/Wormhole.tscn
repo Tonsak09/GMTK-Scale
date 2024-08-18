@@ -9,14 +9,14 @@ radius = 24.0208
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a68tm"]
 shader = ExtResource("2_kb1ua")
-shader_parameter/ColorParameter = Color(0, 0, 0, 1)
+shader_parameter/ColorParameter = Color(0.786347, 0.786347, 0.786347, 1)
 shader_parameter/FloatParameter = 0.5
 shader_parameter/WobbleScale = 1.0
 shader_parameter/SizeScaler = 1.6
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i41bo"]
 shader = ExtResource("2_kb1ua")
-shader_parameter/ColorParameter = Color(0.827451, 0.462745, 0.462745, 1)
+shader_parameter/ColorParameter = Color(0.595769, 0.519147, 0.869024, 1)
 shader_parameter/FloatParameter = 0.5
 shader_parameter/WobbleScale = 0.72
 shader_parameter/SizeScaler = 1.385

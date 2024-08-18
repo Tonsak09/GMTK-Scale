@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cm4ees4gn1ow7"]
 
 [ext_resource type="Script" path="res://Code/Goal.gd" id="1_4dql6"]
-[ext_resource type="Script" path="res://Scenes/Prefabs/GoalManage.gd" id="1_ipger"]
+[ext_resource type="Script" path="res://Code/GoalManage.gd" id="1_ipger"]
 [ext_resource type="Texture2D" uid="uid://b7itw4q0q6lkb" path="res://Textures/Planets/PlanetF.png" id="2_pu4mw"]
 [ext_resource type="Texture2D" uid="uid://4u5xcrb4gvxq" path="res://Textures/Star.png" id="3_ffbn6"]
 
