@@ -3,6 +3,7 @@ extends Node2D
 @export var currShip : Node2D
 @export var onScreenDetector : VisibleOnScreenNotifier2D
 @export var startPos : Node2D
+@export var transitor : Control
 
 @export var levels : Array[PackedScene]
 
@@ -22,9 +23,15 @@ func _process(delta):
 	onScreenDetector.global_position = currShip.global_position 
 	
 	if currLevelInstance.goal.complete:
-		currLevelIndex += 1
-		currLevelInstance.queue_free()
-		LoadLevel(currLevelIndex)
+		
+		transitor.Transition()
+		#currShip.vel = Vector2.ZERO
+		
+		if transitor.reachedMidPoint:
+			currLevelIndex += 1
+			currLevelInstance.queue_free()
+			LoadLevel(currLevelIndex)
+
 
 func LoadLevel(index : int):
 	var levelInstance = levels[index].instantiate()
