@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4m4i47td02fs"]
+
+[ext_resource type="Script" path="res://Code/Gun.gd" id="1_p8vr4"]
+[ext_resource type="Texture2D" uid="uid://blqun0tiv84e7" path="res://Textures/Gun/GunBase.png" id="2_bxjy3"]
+[ext_resource type="Texture2D" uid="uid://djns5mkvfvkho" path="res://Textures/Gun/Gunbarrel.png" id="3_qucay"]
+[ext_resource type="Texture2D" uid="uid://c4gktnvn7geft" path="res://Textures/Gun/GunBattery.png" id="4_vy4fh"]
+
+[sub_resource type="Curve" id="Curve_8fleh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xi8d6"]
+size = Vector2(1014, 20)
+
+[node name="Gun" type="Node2D" node_paths=PackedStringArray("visual", "line")]
+script = ExtResource("1_p8vr4")
+visual = NodePath("Visual")
+line = NodePath("Line2D")
+aimTime = 3.0
+holdTime = 2.0
+aimSpeed = 0.2
+widthTarget = 10.0
+widthCurve = SubResource("Curve_8fleh")
+colorA = Color(0.278431, 0.32549, 0.32549, 0.835294)
+colorB = Color(1, 0.529412, 0.529412, 0.568627)
+
+[node name="GunBase" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_bxjy3")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, -1000, 0)
+default_color = Color(1, 0.53, 0.53, 0.568627)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-497, 0)
+shape = SubResource("RectangleShape2D_xi8d6")
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Gunbarrel" type="Sprite2D" parent="Visual"]
+rotation = 1.5708
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_qucay")
+
+[node name="GunBattery" type="Sprite2D" parent="Visual"]
+position = Vector2(-9, 3.19744e-14)
+rotation = 1.5708
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_vy4fh")
+
+[connection signal="area_entered" from="Area2D" to="." method="OnHit"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpur6b6pjkkae"]
+
+[ext_resource type="Script" path="res://Code/Level.gd" id="1_k0lvf"]
+[ext_resource type="PackedScene" uid="uid://cm4ees4gn1ow7" path="res://Scenes/Prefabs/Goal.tscn" id="2_warqv"]
+[ext_resource type="PackedScene" uid="uid://1sf5om1dnb2w" path="res://Scenes/Prefabs/Collectible.tscn" id="3_qnogl"]
+[ext_resource type="Script" path="res://Code/Spinner.gd" id="4_soja6"]
+[ext_resource type="PackedScene" uid="uid://ccj2mfe2l7cpr" path="res://Scenes/Prefabs/Wormhole.tscn" id="5_0afi6"]
+
+[node name="Level7" type="Node2D" node_paths=PackedStringArray("gravityWells", "goal")]
+script = ExtResource("1_k0lvf")
+gravityWells = [NodePath("Goal"), NodePath("Spinner/Wormhole"), NodePath("Spinner/Wormhole2")]
+goal = NodePath("Goal")
+
+[node name="Goal" parent="." instance=ExtResource("2_warqv")]
+position = Vector2(472, 0)
+
+[node name="Collectible" parent="." instance=ExtResource("3_qnogl")]
+position = Vector2(2, -1)
+
+[node name="Spinner" type="Node2D" parent="."]
+script = ExtResource("4_soja6")
+spinSpeed = 1.0
+
+[node name="Wormhole" parent="Spinner" node_paths=PackedStringArray("target") instance=ExtResource("5_0afi6")]
+position = Vector2(0, -161)
+target = NodePath("../Wormhole2")
+
+[node name="Wormhole2" parent="Spinner" node_paths=PackedStringArray("target") instance=ExtResource("5_0afi6")]
+position = Vector2(211, -1)
+target = NodePath("../Wormhole")

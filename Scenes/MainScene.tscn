@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://batbedws8xmvw"]
+[gd_scene load_steps=21 format=3 uid="uid://batbedws8xmvw"]
 
 [ext_resource type="Script" path="res://Code/GameManager.gd" id="1_tanui"]
 [ext_resource type="PackedScene" uid="uid://btso6c76dfmtk" path="res://Scenes/Prefabs/Ship.tscn" id="2_5i6gr"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" path="res://Code/CollectiblesText.gd" id="11_mh52t"]
 [ext_resource type="Script" path="res://Code/Transition.gd" id="12_c0nbi"]
 [ext_resource type="Texture2D" uid="uid://b1co3joxc1u75" path="res://Textures/Circle.png" id="13_r2ob6"]
+[ext_resource type="PackedScene" uid="uid://dpur6b6pjkkae" path="res://Scenes/Levels/Level_7.tscn" id="15_bxno0"]
+[ext_resource type="PackedScene" uid="uid://c4esrj8bpian8" path="res://Scenes/Levels/Level_8.tscn" id="16_17msm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_08eph"]
 font_size = 40
@@ -36,7 +38,7 @@ currShip = NodePath("Ship")
 onScreenDetector = NodePath("VisibleOnScreenNotifier2D")
 startPos = NodePath("StartPos")
 transitor = NodePath("CanvasGroup/Transition")
-levels = Array[PackedScene]([ExtResource("3_pg5p2"), ExtResource("4_l4smn"), ExtResource("5_i2yr5"), ExtResource("6_gbml2"), ExtResource("7_hw0mj"), ExtResource("8_tgc4w"), ExtResource("9_lv5uv")])
+levels = Array[PackedScene]([ExtResource("3_pg5p2"), ExtResource("4_l4smn"), ExtResource("5_i2yr5"), ExtResource("6_gbml2"), ExtResource("7_hw0mj"), ExtResource("8_tgc4w"), ExtResource("9_lv5uv"), ExtResource("15_bxno0"), ExtResource("16_17msm")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -169,7 +171,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Transition" type="Control" parent="CanvasGroup" node_paths=PackedStringArray("topRect", "botRect")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
