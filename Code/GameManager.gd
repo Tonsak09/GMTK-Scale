@@ -5,6 +5,7 @@ extends Node2D
 @export var startPos : Node2D
 @export var transitor : Control
 
+@export var levelSelectScreen : Node
 @export var levels : Array[PackedScene]
 
 var ship = preload("res://Scenes/Prefabs/Ship.tscn")
@@ -25,6 +26,8 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("Restart"):
 		Restart()
+	
+	
 
 func _process(delta):
 	
@@ -54,6 +57,10 @@ func ReloadLevel():
 	currLevelIndex -= 1
 
 func LoadLevel(index : int):
+	if index == levels.size() - 1:
+		levelSelectScreen.visible = true 
+	
+	
 	var levelInstance = levels[index].instantiate()
 	add_child(levelInstance)
 	currLevelInstance = levelInstance
